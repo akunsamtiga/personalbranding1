@@ -1,103 +1,88 @@
-import Image from "next/image";
+'use client';
+
+import { Instagram, Mail, Github, Twitter, Link2, Sparkles, QuoteIcon } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const links = [
+    { icon: <Link2 size={18} />, label: 'My Portfolio', url: 'https://sanzy.dev' },
+    { icon: <Instagram size={18} />, label: 'Instagram', url: 'https://instagram.com/sanzy' },
+    { icon: <Mail size={18} />, label: 'Email Me', url: 'mailto:sanzy@email.com' },
+    { icon: <QuoteIcon size={18} />, label: 'Link Apapun Bisa', url: '#' },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const socials = [
+    { icon: <Github size={20} />, url: 'https://github.com/sanzy' },
+    { icon: <Twitter size={20} />, url: 'https://twitter.com/sanzy' },
+  ];
+
+  return (
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden px-4">
+
+      {/* BACKGROUND SHAPES */}
+      <div className="absolute w-96 h-96 bg-purple-500/20 rounded-full blur-3xl top-[-100px] left-[-100px]" />
+      <div className="absolute w-80 h-80 bg-pink-500/20 rounded-full blur-3xl bottom-[-100px] right-[-100px]" />
+      <div className="absolute w-60 h-60 bg-cyan-400/10 rounded-full blur-2xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+
+      {/* ICON DECOR */}
+      <Sparkles className="absolute top-10 right-6 text-pink-400 opacity-50 animate-ping-slow" />
+      <Sparkles className="absolute bottom-10 left-8 text-cyan-300 opacity-40 animate-pulse" />
+
+      {/* GLASS CARD */}
+      <div className="relative z-10 max-w-md w-full rounded-3xl border border-white/10 bg-white/10 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(255,255,255,0.2)] p-8 text-center space-y-6 text-white">
+
+        {/* Avatar */}
+        <div className="w-28 h-28 rounded-full mx-auto overflow-hidden border-4 border-white/10 shadow-xl hover:scale-105 transition">
+          <Image 
+            src="/images/p1.jpg" 
+            alt="Sanzy" 
+            width={112}
+            height={112}
+            className="w-full h-full object-cover"
+            priority
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        {/* Name */}
+        <div>
+          <h1 className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 to-pink-400 text-transparent bg-clip-text">
+            NamaAnda
+          </h1>
+          <p className="text-sm text-gray-300 mt-1">Creative Dev • Design Enthusiast • UI Sorcerer ✨</p>
+        </div>
+
+        {/* Link Buttons */}
+        <div className="space-y-3">
+          {links.map(({ icon, label, url }, i) => (
+            <a
+              key={i}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 backdrop-blur-md shadow hover:shadow-xl transition text-white font-medium"
+            >
+              {icon} {label}
+            </a>
+          ))}
+        </div>
+
+        {/* Socials */}
+        <div className="flex justify-center space-x-4 pt-2">
+          {socials.map(({ icon, url }, i) => (
+            <a
+              key={i}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cyan-300 hover:text-white transition transform hover:scale-110"
+            >
+              {icon}
+            </a>
+          ))}
+        </div>
+
+        <p className="text-xs text-gray-400 pt-4">Built by Sanzystore — Glass never looked this good 🧊</p>
+      </div>
+    </main>
   );
 }
